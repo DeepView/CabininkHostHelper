@@ -2,12 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>1.0.2003.1</Version>
+    <Version>1.0.2003.2</Version>
     <Company>Cabinink ( Personal )</Company>
     <Authors>Cabinink</Authors>
     <Copyright>Copyight © 2020 Cabinink, All Rights Reserved.</Copyright>
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/DeepView/CabininkHostHelper</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DeepView/CabininkHostHelper</RepositoryUrl>
+    <RepositoryType>Github</RepositoryType>
+    <Description>This project can be used to modify the host settings of the windows operating system, which is applicable to the mainstream windows operating system versions in the market.</Description>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\lili2\source\repos\CabininkHostHelper\CabininkHostHelper.xml</DocumentationFile>
   </PropertyGroup>
 
 </Project>

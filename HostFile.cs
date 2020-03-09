@@ -8,7 +8,7 @@ namespace CabininkHostHelper
    /// <summary>
    /// 用于表示一个Host文件，该实例可用于修改Windows操作系统的Host内容。
    /// </summary>
-   public class HostFile : IList
+   public class HostFile
    {
       /// <summary>
       /// 构造函数，初始化当前的Host文件实例。
@@ -73,31 +73,15 @@ namespace CabininkHostHelper
       /// </summary>
       public string FileNotes { get; set; }
       /// <summary>
-      /// 获取一个值，该值指示Hosts属性是否具有固定大小。
-      /// </summary>
-      public bool IsFixedSize => ((IList)Hosts).IsFixedSize;
-      /// <summary>
-      /// 获取一个值，用于指示Hosts属性是否为只读。
-      /// </summary>
-      public bool IsReadOnly => ((IList)Hosts).IsReadOnly;
-      /// <summary>
       /// 获取当前实例所包含的Hosts属性所包含的有效Host条目数量。
       /// </summary>
-      public int Count => ((IList)Hosts).Count;
-      /// <summary>
-      /// 获取一个值，该值指示是否同步对Hosts属性的访问（线程安全）。
-      /// </summary>
-      public bool IsSynchronized => ((IList)Hosts).IsSynchronized;
-      /// <summary>
-      /// 获取可用于同步对Hosts属性的访问的对象。
-      /// </summary>
-      public object SyncRoot => ((IList)Hosts).SyncRoot;
+      public int Count => Hosts.Count;
       /// <summary>
       /// 获取或设置指定索引处的元素。
       /// </summary>
       /// <param name="index">指定的索引，可用于查找指定的Host条目。</param>
       /// <returns>该操作返回的是index参数所对应的那一个HostElement实例。</returns>
-      public object this[int index] { get => ((IList)Hosts)[index]; set => ((IList)Hosts)[index] = value; }
+      public HostElement this[int index] { get => Hosts[index]; set => Hosts[index] = value; }
       /// <summary>
       /// 获取当前Windows的Host文件路径。
       /// </summary>
@@ -141,50 +125,49 @@ namespace CabininkHostHelper
       /// 将指定的HostElement实例添加到Hosts中。
       /// </summary>
       /// <param name="value">指定的HostElement实例。</param>
-      /// <returns>该返回值新元素插入到的位置，如果这个值为-1，则指示该项未插入到集合中。</returns>
-      public int Add(object value) => ((IList)Hosts).Add(value);
+      public void Add(HostElement value) => Hosts.Add(value);
       /// <summary>
       /// 从Hosts中移除所有的HostElement实例。
       /// </summary>
-      public void Clear() => ((IList)Hosts).Clear();
+      public void Clear() => Hosts.Clear();
       /// <summary>
       /// 确定Hosts是否包含特定值。
       /// </summary>
       /// <param name="value">要在Hosts中定位的对象。</param>
       /// <returns>该操作如果在返回一个true值，则表示该操作从Hosts属性中找到了指定对象。</returns>
-      public bool Contains(object value) => ((IList)Hosts).Contains(value);
+      public bool Contains(HostElement value) => Hosts.Contains(value);
       /// <summary>
       /// 确定Hosts中特定项的索引。
       /// </summary>
       /// <param name="value">要在Hosts中定位的对象。</param>
       /// <returns>如果指定对象在Hosts中找到，则会返回这个对象的索引，否则将会返回-1。</returns>
-      public int IndexOf(object value) => ((IList)Hosts).IndexOf(value);
+      public int IndexOf(HostElement value) => Hosts.IndexOf(value);
       /// <summary>
       /// 在Hosts中的指定索引处插入一个HostElement实例。
       /// </summary>
       /// <param name="index">指定需要插入新实例的索引。</param>
       /// <param name="value">插入到Hosts属性的HostElement实例。</param>
-      public void Insert(int index, object value) => ((IList)Hosts).Insert(index, value);
+      public void Insert(int index, HostElement value) => Hosts.Insert(index, value);
       /// <summary>
       /// 从Hosts属性中移除特定对象的第一个匹配项。
       /// </summary>
       /// <param name="value">需要被移除与之相匹配的HostElement对象。</param>
-      public void Remove(object value) => ((IList)Hosts).Remove(value);
+      public void Remove(HostElement value) => Hosts.Remove(value);
       /// <summary>
       /// 从Hosts移除位于指定索引处的HostElement实例。
       /// </summary>
       /// <param name="index">需要被移除的HostElement所对应的索引。</param>
-      public void RemoveAt(int index) => ((IList)Hosts).RemoveAt(index);
+      public void RemoveAt(int index) => Hosts.RemoveAt(index);
       /// <summary>
       /// 从特定的ICollection索引处开始，将Array的元素复制到一个Array中。(继承自ICollection)
       /// </summary>
-      /// <param name="array">一维Array，它是从ICollection复制的元素的目标，Array必须具有从零开始的索引。</param>
+      /// <param name="hosts">一个HostElement数组，它是从ICollection复制的元素的目标，该数组必须具有从零开始的索引。</param>
       /// <param name="index">array中要从其开始复制的从零开始的索引。</param>
-      public void CopyTo(Array array, int index) => ((IList)Hosts).CopyTo(array, index);
+      public void CopyTo(HostElement[] hosts, int index) => Hosts.CopyTo(hosts, index);
       /// <summary>
       /// 返回循环访问集合的枚举器。
       /// </summary>
       /// <returns>一个可用于循环访问集合的IEnumerator对象。</returns>
-      public IEnumerator GetEnumerator() => ((IList)Hosts).GetEnumerator();
+      public IEnumerator GetEnumerator() => Hosts.GetEnumerator();
    }
 }
